@@ -1,15 +1,3 @@
 {
-  "version": 2,
-  "functions": {
-    "api/zoom-webhook.js": {
-      "memory": 128,
-      "maxDuration": 10
-    }
-  },
-  "routes": [
-    {
-      "src": "/api/zoom-webhook",
-      "dest": "/api/zoom-webhook.js"
-    }
-  ]
+  "version": 2
 }
