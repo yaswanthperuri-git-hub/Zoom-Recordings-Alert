@@ -22,6 +22,9 @@ module.exports = async function handler(req, res) {
 
   const { event, payload } = req.body;
 
+  console.log("Zoom event received:", event);
+  console.log("Full body:", JSON.stringify(req.body));
+
   if (event === "recording.trashed") {
     await fetch(SLACK_WEBHOOK_URL, {
       method: "POST",
