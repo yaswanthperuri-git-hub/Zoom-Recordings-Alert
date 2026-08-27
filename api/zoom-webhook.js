@@ -23,21 +23,11 @@ module.exports = async function handler(req, res) {
   const { event, payload } = req.body;
 
   if (event === "recording.deleted") {
-    const { topic, host_email, id } = payload.object;
-
     await fetch(SLACK_WEBHOOK_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        blocks: [
-          {
-            type: "section",
-            text: {
-              type: "mrkdwn",
-              text: `<!here> Folks, deleted recordings from the cloud to free up space. Please restore any recordings from the trash if required.\n\n*Meeting:* ${topic}\n*Host:* ${host_email}\n*Meeting ID:* ${id}\n*Deleted at:* ${new Date().toUTCString()}`
-            }
-          }
-        ]
+        text: "<!here> Folks, deleted recordings from the cloud to free up space. Please restore any recordings from the trash if required."
       }),
     });
 
