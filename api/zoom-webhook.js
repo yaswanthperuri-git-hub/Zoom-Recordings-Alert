@@ -22,7 +22,7 @@ module.exports = async function handler(req, res) {
 
   const { event, payload } = req.body;
 
-  if (event === "recording.deleted") {
+  if (event === "recording.trashed") {
     await fetch(SLACK_WEBHOOK_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
